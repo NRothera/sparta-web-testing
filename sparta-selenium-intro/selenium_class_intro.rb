@@ -64,7 +64,6 @@ class SeleniumQatoolsForm
   def get_name
     name = @chrome_driver.find_element(:name, FIRST_NAME_FIELD_NAME).text
     p name
-
   end
 
 
