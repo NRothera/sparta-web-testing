@@ -72,6 +72,10 @@ describe 'testing the demoqa registration page' do
       @driver.click_submit
     end
 
+    it 'should display registered' do
+      expect(@driver.check_registration_successful).to be_truthy
+    end
+
   end
 
 end

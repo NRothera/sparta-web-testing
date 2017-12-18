@@ -22,7 +22,7 @@ class SeleniumDemoReg
   PASSWORD_FIELD = 'password_2'
   CONFIRM_PASSWORD_FIELD =  'confirm_password_password_2'
   SUBMIT_BUTTON = 'pie_submit'
-  REGISTRATION_CONFIRMATION = #class
+  REGISTRATION_CONFIRMATION = 'piereg_message'
 
   def initialize
     # set up driver
@@ -217,7 +217,7 @@ class SeleniumDemoReg
   end
 
   def get_confirmation_password_value
-    set_password_field("Supersecretpassword")
+    set_confirmation_password_field("Supersecretpassword")
     @chrome_driver.find_element(:id, CONFIRM_PASSWORD_FIELD).displayed?
   end
 
@@ -225,9 +225,12 @@ class SeleniumDemoReg
 
   def click_submit
     @chrome_driver.find_element(:name, SUBMIT_BUTTON).click
+    sleep 2
   end
 
   def check_registration_successful
+    registered = @chrome_driver.find_element(:class, REGISTRATION_CONFIRMATION)
+    registered.displayed?
   end
 end
 
