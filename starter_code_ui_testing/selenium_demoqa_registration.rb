@@ -55,6 +55,7 @@ class SeleniumDemoReg
   end
 
   def last_name_field_displayed
+    get_last_name_field_value
     @chrome_driver.find_element(:id, LAST_NAME_FIELD).displayed?
   end
 
@@ -73,7 +74,7 @@ class SeleniumDemoReg
 
   # hobby option management - Difficulty Medium
 
-  def select_hobby_option(hobby)
+  def select_hobby_option
     ran_num = rand(2)
     hobby = @chrome_driver.find_elements(:name, "checkbox_5[]")
     hobby.each do |hob|
@@ -91,12 +92,17 @@ class SeleniumDemoReg
 
   def get_selected_country
     countries = @chrome_driver.find_element(:id, COUNTRY_DROP_DOWN_LIST)
-    all_countries = countries.find_elements(:tag_name, 'option')
+    countries.find_element(:tag_name, 'option').text
   end
 
-  def country_dropdown_list_select
-    if get_selected_country[0].text == "Afhghanistan"
-      return true
+  def country_dropdown_list_select(country)
+    countries = @chrome_driver.find_element(:id, COUNTRY_DROP_DOWN_LIST)
+    all_countries = countries.find_elements(:tag_name, 'option')
+    all_countries.each do |count|
+      if count == country
+        count.click
+        return count.selected?
+      end
     end
   end
 
@@ -107,14 +113,37 @@ class SeleniumDemoReg
   # If no solution then a run through will happen once finished
 
   def dob_month_list_select(month_value)
-
+    mon = @chrome_driver.find_element(:id, DOB_MONTH_DROPDOWN_LIST)
+    all_months = mon.find_elements(:tag_name, "option")
+    all_months.each do |month|
+      if month == month_value
+        month.click
+        return month.selected?
+      end
+    end
   end
 
   def dob_day_list_select(day_value)
-
+    da = @chrome_driver.find_element(:id, DOB_DAY_DROPDOWN_LIST)
+    days = da.find_elements(:tag_name, "option")
+    days.each do |day|
+      if day == day_value
+        day.click
+        return day.selected?
+      end
+    end
   end
 
   def dob_year_list_select(year_value)
+    yea = @chrome_driver.find_element(:id, DOB_YEAR_DROPDOWN_LIST)
+    years = yea.find_elements(:tag_name, "option")
+    years.each do |year|
+      if year == year_value
+        year.click
+        return year.selected?
+      end
+    end
+    sleep 1
 
   end
 
@@ -123,39 +152,53 @@ class SeleniumDemoReg
 
   def set_phone_number_field(phone_number)
     @chrome_driver.find_element(:id, PHONE_NUMBER_FIELDS).send_keys(phone_number)
+    sleep 1
 
   end
 
   def get_phone_number_field_value
     set_phone_number_field("01832273754")
     @chrome_driver.find_element(:id, PHONE_NUMBER_FIELDS).displayed?
+    sleep 1
   end
 
   #  username field management - Difficulty Easy
 
   def set_user_name_field(user_name)
     @chrome_driver.find_element(:id, USERNAME_FIELD).send_keys(user_name)
+    sleep 1
   end
 
   def get_user_name_field_value
     set_user_name_field("Dustycheese")
     @chrome_driver.find_element(:id, USERNAME_FIELD).displayed?
+    sleep 1
   end
 
   # Email field management - Difficulty Easy
 
   def set_email_field(email)
+    @chrome_driver.find_element(:id, EMAIL_FIELD).send_keys(email)
+    sleep 1
   end
 
   def get_email_field_value
+    set_email_field("dusty@email.com")
+    @chrome_driver.find_element(:id, EMAIL_FIELD).displayed?
+    sleep 1
   end
 
   # about yourself / description field - Difficulty Easy
 
   def set_about_yourself_field(details)
+    @chrome_driver.find_element(:name, DESCRIPTION_FIELD).send_keys(details)
+    sleep 1
   end
 
   def get_about_yourself_value
+    set_about_yourself_field("I am a great human")
+    @chrome_driver.find_element(:name, DESCRIPTION_FIELD).displayed?
+    sleep 1
   end
 
   # Password management - Difficulty Easy

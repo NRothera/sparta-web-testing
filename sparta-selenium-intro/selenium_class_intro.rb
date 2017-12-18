@@ -61,10 +61,11 @@ class SeleniumQatoolsForm
     all_options.each {|option| if option.text == "North America"; option.click end}
   end
 
-  # def get_name
-  #   name = @chrome_driver.find_element(:name, FIRST_NAME_FIELD_NAME).get('value')
-  #   name
-  # end
+  def get_name
+    name = @chrome_driver.find_element(:name, FIRST_NAME_FIELD_NAME).text
+    p name
+
+  end
 
 
 
@@ -85,5 +86,6 @@ practice_form_page.datepicker('18/12/2017')
 practice_form_page.profession
 practice_form_page.tool
 practice_form_page.continents
+p practice_form_page.get_name
 
 practice_form_page.sleepy
