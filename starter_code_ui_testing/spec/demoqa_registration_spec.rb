@@ -61,11 +61,15 @@ describe 'testing the demoqa registration page' do
     end
 
     it 'should accept a password' do
-
+      expect(@driver.get_password_value).to be_truthy
     end
 
     it 'should accept a password confirmation' do
+      expect(@driver.get_confirmation_password_value).to be_truthy
+    end
 
+    it 'should click button' do
+      @driver.click_submit
     end
 
   end

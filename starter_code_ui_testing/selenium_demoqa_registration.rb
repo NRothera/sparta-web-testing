@@ -99,7 +99,7 @@ class SeleniumDemoReg
     countries = @chrome_driver.find_element(:id, COUNTRY_DROP_DOWN_LIST)
     all_countries = countries.find_elements(:tag_name, 'option')
     all_countries.each do |count|
-      if count == country
+      if count.text == country
         count.click
         return count.selected?
       end
@@ -116,7 +116,7 @@ class SeleniumDemoReg
     mon = @chrome_driver.find_element(:id, DOB_MONTH_DROPDOWN_LIST)
     all_months = mon.find_elements(:tag_name, "option")
     all_months.each do |month|
-      if month == month_value
+      if month.text == month_value
         month.click
         return month.selected?
       end
@@ -127,7 +127,7 @@ class SeleniumDemoReg
     da = @chrome_driver.find_element(:id, DOB_DAY_DROPDOWN_LIST)
     days = da.find_elements(:tag_name, "option")
     days.each do |day|
-      if day == day_value
+      if day.text == day_value
         day.click
         return day.selected?
       end
@@ -138,7 +138,7 @@ class SeleniumDemoReg
     yea = @chrome_driver.find_element(:id, DOB_YEAR_DROPDOWN_LIST)
     years = yea.find_elements(:tag_name, "option")
     years.each do |year|
-      if year == year_value
+      if year.text == year_value
         year.click
         return year.selected?
       end
@@ -204,20 +204,27 @@ class SeleniumDemoReg
   # Password management - Difficulty Easy
 
   def set_password_field(password)
+    @chrome_driver.find_element(:id, PASSWORD_FIELD).send_keys(password)
   end
 
   def get_password_value
+    set_password_field("Supersecretpassword")
+    @chrome_driver.find_element(:id, PASSWORD_FIELD).displayed?
   end
 
   def set_confirmation_password_field(password)
+    @chrome_driver.find_element(:id, CONFIRM_PASSWORD_FIELD).send_keys(password)
   end
 
   def get_confirmation_password_value
+    set_password_field("Supersecretpassword")
+    @chrome_driver.find_element(:id, CONFIRM_PASSWORD_FIELD).displayed?
   end
 
   # registration confirmation - Difficulty Easy
 
   def click_submit
+    @chrome_driver.find_element(:name, SUBMIT_BUTTON).click
   end
 
   def check_registration_successful
