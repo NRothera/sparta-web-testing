@@ -14,6 +14,10 @@ class BbcSignUpPage
   GENDER_SELECT = 'gender-input'
   OPT_OUT_EMAIL = 'button__text-wrapper'
   OPT_IN_ERROR_MESSAGE_ID = 'form-message-marketingOptIn'
+  SAME_EMAIL_ERROR_ID = 'form-message-email'
+  GENDER_MESSAGE_ERROR_ID = 'form-message-gender'
+  PASSWORD_MESSAGE_ERROR_ID = 'form-message-password'
+  DOB_ERROR_MESSAGE_ID = 'form-message-dateOfBirth'
 
 
 
@@ -49,14 +53,27 @@ class BbcSignUpPage
     select('Male', :from => GENDER_SELECT)
   end
 
-  def select_opt_out
-    button = find(:css, 'button__text')
-    button.click
+  def select_opt(opt)
+    find(:xpath, ".//label[@for='#{opt}']/div/div").click
   end
 
   def find_error_message_opt_in
     find(:id, OPT_IN_ERROR_MESSAGE_ID).text
   end
 
+  def find_error_user_text
+    find(:id, SAME_EMAIL_ERROR_ID).text
+  end
 
+  def find_error_gender_text
+    find(:id, GENDER_MESSAGE_ERROR_ID).text
+  end
+
+  def find_error_password_text
+    find(:id, PASSWORD_MESSAGE_ERROR_ID).text
+  end
+
+  def find_dob_error_message_text
+    find(:id, DOB_ERROR_MESSAGE_ID).text
+  end
 end

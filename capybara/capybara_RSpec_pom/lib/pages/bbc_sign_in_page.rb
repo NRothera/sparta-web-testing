@@ -12,6 +12,7 @@ class BbcSignInPage
   WRONG_USERNAME_ERROR_ID = 'form-message-username'
   REGISTER_LINK_TEXT = 'Register now'
   SUBMIT_BUTTON_ID = 'submit-button'
+  
 
   def visit_register_page
     visit(SIGN_IN_PAGE_URL)
