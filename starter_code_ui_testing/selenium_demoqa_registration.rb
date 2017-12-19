@@ -56,7 +56,7 @@ class SeleniumDemoReg
 
   def last_name_field_displayed
     get_last_name_field_value
-    @chrome_driver.find_element(:id, LAST_NAME_FIELD).displayed?
+    @chrome_driver.find_element(:id, LAST_NAME_FIELD)
   end
 
   # Marital option management - Difficulty Medium
@@ -67,7 +67,6 @@ class SeleniumDemoReg
     status.each do |stat|
       if stat['value'] == MARITAL_STATUS[ran_num]
         stat.click
-        return stat.selected?
       end
     end
   end
@@ -80,7 +79,6 @@ class SeleniumDemoReg
     hobby.each do |hob|
       if hob['value'] == HOBBY_STATUS[ran_num]
         hob.click
-        return hob.selected?
       end
     end
   end
@@ -101,7 +99,6 @@ class SeleniumDemoReg
     all_countries.each do |count|
       if count.text == country
         count.click
-        return count.selected?
       end
     end
   end
@@ -118,7 +115,6 @@ class SeleniumDemoReg
     all_months.each do |month|
       if month.text == month_value
         month.click
-        return month.selected?
       end
     end
   end
@@ -129,7 +125,6 @@ class SeleniumDemoReg
     days.each do |day|
       if day.text == day_value
         day.click
-        return day.selected?
       end
     end
   end
@@ -140,7 +135,6 @@ class SeleniumDemoReg
     years.each do |year|
       if year.text == year_value
         year.click
-        return year.selected?
       end
     end
     sleep 1

@@ -14,19 +14,19 @@ describe 'testing the demoqa registration page' do
     end
 
     it 'should accept a first name' do
-      expect(@driver.set_first_name_field("Nicolas")).to be_truthy
+      @driver.set_first_name_field("Nicolas")
     end
 
     it 'should accept a last name' do
-      expect(@driver.last_name_field_displayed).to be_truthy
+      @driver.last_name_field_displayed
     end
 
     it 'should accept a marital status selection of Single, Married, or Divorced' do
-      expect(@driver.select_marital_option).to be_truthy
+      @driver.select_marital_option
     end
 
     it 'should accept a hobby status selection of Dance, Reading, or Cricket' do
-      expect(@driver.select_hobby_option).to be_truthy
+      @driver.select_hobby_option
     end
 
     it 'should have a country default of Afghanistan' do
@@ -34,38 +34,38 @@ describe 'testing the demoqa registration page' do
     end
 
     it 'accept a new DOB' do
-      expect(@driver.dob_day_list_select(12)).to be_truthy
-      expect(@driver.dob_month_list_select(5)).to be_truthy
-      expect(@driver.dob_year_list_select(2018)).to be_truthy
+      @driver.dob_day_list_select('12')
+      @driver.dob_month_list_select('5')
+      @driver.dob_year_list_select('2013')
     end
 
     it 'should accept a new email value' do
-      expect(@driver.get_email_field_value).to be_truthy
+      @driver.get_email_field_value
     end
 
     it 'should accept a new country value' do
-      expect(@driver.country_dropdown_list_select("Cuba")).to be_truthy
+      @driver.country_dropdown_list_select("Cuba")
     end
 
     it 'should accept a valid phone number' do
-      expect(@driver.get_phone_number_field_value).to be_truthy
+      @driver.get_phone_number_field_value
     end
 
     it 'should accept a username' do
-      expect(@driver.get_user_name_field_value).to be_truthy
+      @driver.get_user_name_field_value
     end
 
     it 'should accept a about yourself text' do
-      expect(@driver.get_about_yourself_value).to be_truthy
+      @driver.get_about_yourself_value
 
     end
 
     it 'should accept a password' do
-      expect(@driver.get_password_value).to be_truthy
+      @driver.get_password_value
     end
 
     it 'should accept a password confirmation' do
-      expect(@driver.get_confirmation_password_value).to be_truthy
+      @driver.get_confirmation_password_value
     end
 
     it 'should click button' do
@@ -73,7 +73,7 @@ describe 'testing the demoqa registration page' do
     end
 
     it 'should display registered' do
-      expect(@driver.check_registration_successful).to be_truthy
+      @driver.check_registration_successful
     end
 
   end
