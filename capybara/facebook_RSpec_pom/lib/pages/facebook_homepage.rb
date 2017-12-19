@@ -35,10 +35,21 @@ class FacebookHomepage
     fill_in(PASSWORD_FIELD_ID, with: password)
   end
 
-  
+  def choose_day
+    select('15', :from => DAY_ID)
+  end
 
+  def choose_month
+    select('10', :from => MONTH_ID)
+  end
 
-  select('Male', :from => GENDER_SELECT)
+  def choose_year
+    select('1992', :from => YEAR_ID)
+  end
+
+  def choose_female_radio_button
+    choose(FEMALE_RADIO_ID)
+  end
 
 
 

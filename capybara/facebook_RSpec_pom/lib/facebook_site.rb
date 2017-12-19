@@ -1,4 +1,4 @@
-require_relative '/pages/facebook_homepage.rb'
+require_relative 'pages/facebook_homepage'
 
 class FacebookSite
 

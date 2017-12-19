@@ -1,5 +1,5 @@
 require 'capybara'
-require_relative '../lib/bbc_site'
+require_relative '../lib/facebook_site'
 
 RSpec.configure do |config|
   config.formatter = :documentation
