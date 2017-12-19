@@ -3,6 +3,10 @@ require 'spec_helper'
 describe 'Incorrect user details produces valid error' do
 
   context 'it should respond with the correct error when incorrect details are input' do
+
+    after(:all)do
+      Capybara.current_session.driver.quit
+    end
     #
     # it 'should produce an error when inputting an incorrect password to a valid account' do
     #

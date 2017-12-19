@@ -12,7 +12,7 @@ class BbcSignUpPage
   PASSWORD_FIELD = 'password-input'
   POSTCODE_FIELD = 'postcode-input'
   GENDER_SELECT = 'gender-input'
-  OPT_OUT_EMAIL = 'button__text'
+  OPT_OUT_EMAIL = 'button__text-wrapper'
   OPT_IN_ERROR_MESSAGE_ID = 'form-message-marketingOptIn'
 
 
@@ -50,17 +50,13 @@ class BbcSignUpPage
   end
 
   def select_opt_out
-    click(OPT_OUT_EMAIL)
+    button = find(:css, 'button__text')
+    button.click
   end
 
   def find_error_message_opt_in
     find(:id, OPT_IN_ERROR_MESSAGE_ID).text
   end
-
-
-
-
-
 
 
 end
