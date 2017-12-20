@@ -35,6 +35,9 @@ As you can see, there is a process to signing in, and this test will only pass i
 
 There are separate classes for each webpage so make sure you are using the right class methods for the page you are testing.
 For instance if you were testing the homepage, you would use @bb_site.bbc_homepage then whichever method you needed for what you were testing.
+
+There are also separate spec_files for what you are testing. In this case we have  one spec folder for testing the sign in page and another spec folder for testing the sign up page
+
 Usually your tests will involve moving onto different pages so make sure you change your class methods accordingly. In the test above you can see we move from the homepage to the sign in page to the sign up page.
 
 Go to lib, pages for the webpage files containing the methods for each page.
